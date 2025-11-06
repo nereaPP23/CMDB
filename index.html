@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CMDB - CIFP Avilés</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <h1>CMDB - Gestión básica de películas</h1>
+
+  <!-- GÉNEROS -->
+  <section>
+    <h2>Géneros</h2>
+    <input type="text" id="nombreGenero" placeholder="Nombre del género">
+    <button id="btnAddGenero">Añadir género</button>
+    <button id="btnEliminarGenero">Eliminar género</button>
+    <button id="btnModificarGenero">Modificar género</button>
+    <ul id="listaGeneros"></ul>
+  </section>
+
+  <!-- PELÍCULAS -->
+  <section>
+    <h2>Películas</h2>
+    <input type="text" id="titulo" placeholder="Título">
+    <input type="date" id="fecha">
+    <input type="number" id="popularidad" placeholder="Popularidad (0-100)" min="0" max="100">
+    <select id="generoSelect" multiple></select>
+    <button id="btnAddPelicula">Añadir película</button>
+    <button id="btnEliminarPelicula">Eliminar película</button>
+    <button id="btnModificarPelicula">Modificar película</button>
+    <ul id="listaPeliculas"></ul>
+  </section>
+
+  <!-- LISTADO -->
+  <section>
+    <h2>Listado con votos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Título</th><th>Fecha</th><th>Popularidad</th><th>Puntuación</th><th>Votos</th><th>Géneros</th><th>Votar</th>
+        </tr>
+      </thead>
+      <tbody id="tablaListado"></tbody>
+    </table>
+  </section>
+
+  <script src="js/storage.js"></script>
+  <script src="js/generos.js"></script>
+  <script src="js/peliculas.js"></script>
+  <script src="js/main.js"></script>
+
+  <button id="prueba">Prueba</button>
+</body>
+</html>
