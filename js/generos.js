@@ -28,7 +28,7 @@ class Genero {
     const genero = Genero.lista.find(g => g.id === id);
     if (!genero) throw new Error("Género no encontrado");
 
-    // c) Comprobar si hay películas con ese género
+    //Comprobar si hay películas con ese género
     const usadas = Pelicula.lista.filter(p => p.generos.includes(id));
     if (usadas.length > 0) {
       alert(`No se puede eliminar. ${usadas.length} películas tienen este género. Primero quítalo de esas películas.`);
