@@ -4,16 +4,38 @@
  * Clase para gestionar géneros.
  */
 class Genero {
+  /**
+   * @param {Number} id El id del género.
+   * @param {String} nombre El nombre del género.
+   */
   constructor(id, nombre = "género desconocido") {
     this._id = id;
     this._nombre = nombre.slice(0, 100);
   }
 
+  
+  /**
+   * @returns {Number} El id del género.
+   */
   get id() { return this._id; }
+
+  /**
+   * @returns {String} El nombre del género.
+   */
   get nombre() { return this._nombre; }
+
+  /**
+   * @param {String} n El nuevo nombre del género (max 100 caracteres).
+   */
   set nombre(n) { this._nombre = n.slice(0, 100); }
 
 
+
+  /**
+   * Crea un genero dado un nombre.
+   * @param {String} nombre El nombre del género a crear.
+   * @returns {Genero} El género creado.
+   */
   static crear(nombre) {
     const id = Genero.lista.length ? Math.max(...Genero.lista.map(g => g.id)) + 1 : 1;
     const nuevo = new Genero(id, nombre);
@@ -23,6 +45,12 @@ class Genero {
   }
 
   
+  /**
+   * Elimina un género dado su id.
+   * @param {Number} id El id del género a eliminar.
+   * @returns {Boolean} True si se ha eliminado correctamente, false en caso contrario.
+   * @throws {Error} Si el género no existe.
+   */
   static eliminar(id) {
     id = parseInt(id);
     const genero = Genero.lista.find(g => g.id === id);
@@ -41,6 +69,13 @@ class Genero {
     return true;
   }
 
+
+  /**
+   * Modifica el nombre de un género dado su id.
+   * @param {Number} id El id del género a modificar.
+   * @param {String} nuevoNombre El nuevo nombre del género.
+   * @throws {Error} Si el género no existe.
+   */
   static modificar(id, nuevoNombre) {
     id = parseInt(id);
     const genero = Genero.lista.find(g => g.id === id);
@@ -51,6 +86,11 @@ class Genero {
   }
 
 
+
+  /**
+   * Muestra la lista de géneros.
+   * @returns {void}
+   */
   static mostrar() {
     const ul = document.getElementById("listaGeneros");
     const select = document.getElementById("generoSelect");
@@ -70,4 +110,8 @@ class Genero {
   }
 }
 
-Genero.lista = []; // lista estática compartida
+
+/**
+ * @type {Genero[]} lista de géneros.
+ */
+Genero.lista = []; 
