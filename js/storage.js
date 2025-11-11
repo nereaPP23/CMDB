@@ -26,10 +26,10 @@ class Storage {
       ];
       Pelicula.lista = [
         new Pelicula(1, "Titanic", "1998-01-08", 80, [2]),
-        new Pelicula(2, "Ocho apellidos vascos", "2014-03-14", 70, [1]),
+        new Pelicula(2, "Volver", "2006-03-10", 70, [1]),
         new Pelicula(3, "Matrix", "1999-06-23", 40, [1,2]),
         new Pelicula(4, "El corredor del laberinto", "2014-09-19", 60, [2]),
-        new Pelicula(5, "Campeones", "2018-04-06", 30, [1])
+        new Pelicula(5, "El padrino", "1972-10-20", 30, [2])
       ];
       Storage.guardar();
     } else {
