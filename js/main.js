@@ -1,12 +1,19 @@
 // ========== main.js ==========
 
+
+/**
+ * Evento de carga de la página
+ */
 document.addEventListener("DOMContentLoaded", () => {
   Storage.inicializar();
   Genero.mostrar();
   Pelicula.mostrar();
   Pelicula.mostrarListado();
 
-  //Eventos de géneros
+  /**
+   * Evento para añadir un nuevo género al formulario
+   * Valida que el nombre no este vacio ni duplicado
+   */
   document.getElementById("btnAddGenero").addEventListener("click", () => {
     const nombre = document.getElementById("nombreGenero").value.trim();
     if (nombre) {
@@ -17,6 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  /**
+   * Evento para eliminar un género del formulario
+   * Valida que el ID del género sea válido
+   * Si el género no existe, muestra un alert
+   * Si se ha eliminado correctamente, muestra un alert
+   */
   document.getElementById("btnEliminarGenero").addEventListener("click", () => {
     const id = prompt("Introduce el ID del género a eliminar:");
     try {
@@ -26,6 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 
+
+  /**
+   * Evento para modificar un género del formulario
+   * Valida que el ID del género sea válido
+   * Si el género no existe, muestra un alert
+   * Si se ha modificado correctamente, muestra un alert
+   */
   document.getElementById("btnModificarGenero").addEventListener("click", () => {
       const id = prompt("Introduce el ID del género a modificar:");
       const nuevo = prompt("Nuevo nombre:");
@@ -40,7 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // Eventos de películas
+  /**
+   * Evento para añadir una nueva película al formulario
+   * Valida los campos y evita títulos duplicados
+   * Si se ha añadido correctamente, muestra un alert
+   */
   document.getElementById("btnAddPelicula").addEventListener("click", () => {
     const titulo = document.getElementById("titulo").value.trim();
     const fecha = document.getElementById("fecha").value;
@@ -58,6 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  /**
+   * Evento para eliminar una película del formulario
+   * Valida que el ID de la película sea válido
+   * Si la película no existe, muestra un alert
+   * Si se ha eliminado correctamente, muestra un alert
+   */
 document.getElementById("btnEliminarPelicula").addEventListener("click", () => {
     const id = prompt("Introduce el ID de la película a eliminar:");
     try {
@@ -68,6 +98,13 @@ document.getElementById("btnEliminarPelicula").addEventListener("click", () => {
   });
 
 
+
+  /**
+   * Evento para modificar una película del formulario
+   * Valida que el ID de la película sea válido
+   * Si la película no existe, muestra un alert
+   * Si se ha modificado correctamente, muestra un alert
+   */
 document.getElementById("btnModificarPelicula").addEventListener("click", () => {
       const id = prompt("Introduce el ID de la película a modificar:");
       const nuevoTitulo = prompt("Nuevo título:");
@@ -87,6 +124,9 @@ document.getElementById("btnModificarPelicula").addEventListener("click", () => 
   });
 
 
+  /**
+   * Evento para votar una película
+   */
   document.getElementById("tablaListado").addEventListener("click", e => {
     if (e.target.classList.contains("votar")) {
       const id = parseInt(e.target.dataset.id);
