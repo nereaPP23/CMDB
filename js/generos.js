@@ -8,7 +8,7 @@ class Genero {
    * @param {Number} id El id del género.
    * @param {String} nombre El nombre del género.
    */
-  constructor(id, nombre = "género desconocido") {
+  constructor(id, nombre) {
     this._id = id;
     this._nombre = nombre.slice(0, 100);
   }
