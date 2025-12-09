@@ -14,7 +14,7 @@ class Genero {
   }
 
   
-  /**
+  /** 
    * @returns {Number} El id del género.
    */
   get id() { return this._id; }
